@@ -1,0 +1,11 @@
+services:
+  localstack:
+    image: localstack/localstack:3.8
+    container_name: integration_aws_test
+    ports:
+      - "4566:4566"
+    environment:
+      SERVICES: dynamodb,sqs
+      DEBUG: "1"
+    volumes:
+      - "./localstack:/var/lib/localstack"
